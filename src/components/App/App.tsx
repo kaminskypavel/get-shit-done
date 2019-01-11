@@ -1,6 +1,7 @@
 import React, {Component} from "react";
 import "./App.scss";
 import logo from "./logo.svg";
+import TodoItem from "../TodoItem";
 
 class App extends Component {
   public render() {
@@ -17,8 +18,10 @@ class App extends Component {
             target="_blank"
             rel="noopener noreferrer"
           >
-            Learn React
+            Learn React1
           </a>
+          <TodoItem/>
+
         </header>
       </div>
     );
