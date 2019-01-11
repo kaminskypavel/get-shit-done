@@ -1,3 +1,6 @@
+# get-shit-done
+a simple task prioritaizer 📃✏ = ✅
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
