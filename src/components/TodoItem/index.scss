@@ -1,6 +1,22 @@
-.done {
-  background: rgba(0,0,0,0.12);
+.todo-item {
 }
+
+.done {
+  animation-name: stretch;
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
+}
+
+@keyframes stretch {
+  0% {
+    border-radius: 100%;
+  }
+  100% {
+    background-color: transparentize(lightgrey, 0.4);
+  }
+}
+
+
 .strike {
   text-decoration: line-through;
 }

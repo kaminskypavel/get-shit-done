@@ -38,7 +38,7 @@ export default class extends Component<ITodoItemProps> {
     const TableCellWithStrike = withStrike(TableCell, this.props.todo);
 
     return (
-      <TableRow key={id.toString()} className={done? 'done' : 'undone'}>
+      <TableRow key={id.toString()} className={[done? 'done' : 'undone',"todo-item"].join(" ")}>
         <TableCellWithStrike>
           <Checkbox
             checked={done}
