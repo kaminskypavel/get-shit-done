@@ -7,7 +7,7 @@ class App extends Component {
     return (
       <div className="App">
         <div className="TodoTable">
-          <h1>Today's Tasks 🕗</h1>
+          <h1>Lets get shit done today 🕗</h1>
           <br/>
           <TodoTable/>
         </div>
