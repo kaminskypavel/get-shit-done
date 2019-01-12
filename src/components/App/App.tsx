@@ -1,28 +1,16 @@
 import React, {Component} from "react";
 import "./App.scss";
-import logo from "./logo.svg";
-import TodoItem from "../TodoItem";
+import TodoTable from "../TodoTable";
 
 class App extends Component {
   public render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo"/>
-          <p>
-            Edit <code>src/App.tsx</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React1
-          </a>
-          <TodoItem/>
-
-        </header>
+        <div className="TodoTable">
+          <h1>Today's Tasks 🕗</h1>
+          <br/>
+          <TodoTable/>
+        </div>
       </div>
     );
   }

@@ -1,16 +1,30 @@
 import {Button} from "reactstrap";
 import * as React from "react";
+import Input from "reactstrap/lib/Input";
+import {ITodoTask} from "../../types/ITodoTask";
 
-export default () => {
+interface ITodoItemProps {
+  task: ITodoTask
+}
+
+export default ({task}: ITodoItemProps) => {
+  const {description, importance, urgency, priority, done} = task;
   return (
-    <div>
-      <Button color="primary">primary</Button>{' '}
-      <Button color="secondary">secondary</Button>{' '}
-      <Button color="success">success</Button>{' '}
-      <Button color="info">info</Button>{' '}
-      <Button color="warning">warning</Button>{' '}
-      <Button color="danger">danger</Button>{' '}
-      <Button color="link">link</Button>
-    </div>
+    <tr>
+      <th>
+        <Input type={"checkbox"} checked={done}/>
+      </th>
+      <td>
+        {description}
+      </td>
+      <td>
+        {urgency} </td>
+      <td>
+        {importance}
+      </td>
+      <td>
+        {priority}
+      </td>
+    </tr>
   );
 };

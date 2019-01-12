@@ -1,15 +1,11 @@
 .App {
   text-align: center;
-}
-
-.App-logo {
-  animation: App-logo-spin infinite 10s linear;
-  height: 40vmin;
-}
-
-.App-header {
   background-color: #282c34;
+}
+
+.TodoTable {
   min-height: 100vh;
+  padding: 100px;
   display: flex;
   flex-direction: column;
   align-items: center;
