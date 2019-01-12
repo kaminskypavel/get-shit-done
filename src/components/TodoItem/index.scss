@@ -3,7 +3,7 @@
 
 .done {
   animation-name: stretch;
-  animation-duration: 1s;
+  animation-duration: 0.5s;
   animation-fill-mode: forwards;
 }
 
@@ -12,7 +12,7 @@
     border-radius: 100%;
   }
   100% {
-    background-color: transparentize(lightgrey, 0.4);
+    background-color: transparentize(lightgrey, 0.6);
   }
 }
 

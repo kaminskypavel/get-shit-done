@@ -31,11 +31,12 @@ export default class extends React.Component<ITodoTableProps> {
         <Table className="table">
           <TableHead>
             <TableRow>
-              <TableCell>Done</TableCell>
-              <TableCell>Description</TableCell>
-              <TableCell>Urgency</TableCell>
-              <TableCell>Importance</TableCell>
-              <TableCell>Priority</TableCell>
+              <TableCell align="center">Done</TableCell>
+              <TableCell align="center">Description</TableCell>
+              <TableCell align="center">Urgency</TableCell>
+              <TableCell align="center">Importance</TableCell>
+              <TableCell align="center">Priority</TableCell>
+              <TableCell align="center">Delete</TableCell>
             </TableRow>
           </TableHead>
           <TableBody>

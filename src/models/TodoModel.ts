@@ -32,9 +32,9 @@ export default class TodoModel {
     this.done = !this.done;
   }
 
-  // destroy() {
-  //   this.store.todos.remove(this);
-  // }
+  remove() {
+    this.store.removeTodo(this);
+  }
 
   setDescription(description: string) {
     this.description = description;

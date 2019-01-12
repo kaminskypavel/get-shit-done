@@ -40,6 +40,11 @@ export default class TodoStore {
   }
 
   @action
+  removeTodo(todo: TodoModel) {
+    this.todos = this.todos.filter((e) => e !== todo);
+  }
+
+  @action
   toggleAll(checked: boolean) {
     this.todos.forEach(
       (todo) => todo.done = checked

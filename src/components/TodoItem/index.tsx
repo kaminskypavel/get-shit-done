@@ -1,11 +1,12 @@
 import * as React from "react";
 import {Component} from "react";
-import {Checkbox, TableCell, TableRow} from "@material-ui/core";
+import {Checkbox, Fab, TableCell, TableRow} from "@material-ui/core";
 import {observer} from "mobx-react";
 import {action} from "mobx";
 import TodoModel from "../../models/TodoModel";
 import "./index.scss";
 import {Slider} from "@material-ui/lab";
+import DeleteIcon from "@material-ui/icons/Delete";
 
 interface ITodoItemProps {
   todo: TodoModel
@@ -19,7 +20,7 @@ function withStrike(WrappedComponent: any, todo: TodoModel) {
 
     render() {
       const {done} = todo;
-      return <WrappedComponent className={done ? "strike" : ""} {...this.props} />;
+      return <WrappedComponent align="center" className={done ? "strike" : ""} {...this.props} />;
     }
   };
 }
@@ -32,13 +33,18 @@ export default class extends Component<ITodoItemProps> {
     this.props.todo.toggle();
   };
 
+  @action
+  handleDelete = () => {
+    this.props.todo.remove();
+  };
+
 
   render() {
     const {id, description, importance, urgency, priority, done} = this.props.todo;
     const TableCellWithStrike = withStrike(TableCell, this.props.todo);
 
     return (
-      <TableRow key={id.toString()} className={[done? 'done' : 'undone',"todo-item"].join(" ")}>
+      <TableRow key={id.toString()} className={[done ? "done" : "undone", "todo-item"].join(" ")}>
         <TableCellWithStrike>
           <Checkbox
             checked={done}
@@ -66,6 +72,9 @@ export default class extends Component<ITodoItemProps> {
         </TableCellWithStrike>
         <TableCellWithStrike>
           {priority}
+        </TableCellWithStrike>
+        <TableCellWithStrike>
+          <DeleteIcon onClick={this.handleDelete}/>
         </TableCellWithStrike>
       </TableRow>
     );
