@@ -4,31 +4,19 @@ import {ITodoTask} from "../../types/ITodoTask";
 import {Paper, Table, TableBody, TableHead, TableRow} from "@material-ui/core";
 import TableCell from "@material-ui/core/TableCell";
 import "./style.scss";
+import TodoStore from "../../stores/TodoStore";
+import {observer} from "mobx-react";
 
-interface ITodoTableState {
-  tasks: ITodoTask[];
+interface ITodoTableProps {
+  todoStore: TodoStore;
 }
 
-export default class extends React.Component<{}, ITodoTableState> {
-  state = {
-    tasks: [1, 2, 3, 4, 5]
-      .map((taskId) => {
-          const importance = Math.floor(Math.random() * 10);
-          const urgency = Math.floor(Math.random() * 10);
-          return {
-            id: taskId.toString(),
-            description: `task ${taskId}`,
-            importance,
-            urgency,
-            priority: importance + urgency,
-            done: false
-          };
-        }
-      )
-  };
+
+@observer
+export default class extends React.Component<ITodoTableProps> {
 
   private sortTasks(tasks: ITodoTask[]) {
-    return tasks.sort((task1, task2) => (task1.urgency + task1.urgency) - (task2.urgency + task2.urgency));
+    return tasks.slice().sort((task1, task2) => (task1.urgency + task1.urgency) - (task2.urgency + task2.urgency));
   }
 
   render() {
@@ -45,8 +33,8 @@ export default class extends React.Component<{}, ITodoTableState> {
             </TableRow>
           </TableHead>
           <TableBody>
-            {this.sortTasks(this.state.tasks).map((task) => (
-              <TodoItem task={task}/>
+            {this.props.todoStore.todos.map((task) => (
+              <TodoItem todo={task}/>
             ))}
           </TableBody>
         </Table>

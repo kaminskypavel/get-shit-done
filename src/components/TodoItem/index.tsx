@@ -1,38 +1,73 @@
 import * as React from "react";
 import {Component} from "react";
-import {ITodoTask} from "../../types/ITodoTask";
 import {Checkbox, TableCell, TableRow} from "@material-ui/core";
+import {observer} from "mobx-react";
+import {action} from "mobx";
+import TodoModel from "../../models/TodoModel";
+
+import "./index.scss";
+import {Slider} from "@material-ui/lab";
 
 interface ITodoItemProps {
-  task: ITodoTask
+  todo: TodoModel
 }
 
+function withStrike(WrappedComponent: any, todo: TodoModel) {
+  return class extends React.Component {
+    constructor(props: any) {
+      super(props);
+    }
+
+    render() {
+      const {done} = todo;
+      return <WrappedComponent className={done ? "strike" : ""} {...this.props} />;
+    }
+  };
+}
+
+@observer
 export default class extends Component<ITodoItemProps> {
+
+  @action
+  handleToggle = () => {
+    this.props.todo.toggle();
+  };
+
+
   render() {
-    const {id, description, importance, urgency, priority, done} = this.props.task;
+    const {id, description, importance, urgency, priority, done} = this.props.todo;
+    const TableCellWithStrike = withStrike(TableCell, this.props.todo);
+
     return (
       <TableRow key={id.toString()}>
-        <TableCell>
+        <TableCellWithStrike>
           <Checkbox
             checked={done}
-            onChange={() => {
-              alert(this.props.task.done);
-              console.log(this.props);
+            onChange={this.handleToggle}
+          />
+        </TableCellWithStrike>
+        <TableCellWithStrike>
+          {description}
+        </TableCellWithStrike>
+        <TableCellWithStrike>
+          {urgency}
+          <Slider
+            value={urgency}
+            min={1}
+            max={10}
+            step={1}
+            onChange={(event, value) => {
+              console.log(event, value);
             }}
           />
-        </TableCell>
-        <TableCell>
-          {description}
-        </TableCell>
-        <TableCell>
-          {urgency}
-        </TableCell>
-        <TableCell>
+
+        </TableCellWithStrike>
+        <TableCellWithStrike>
           {importance}
-        </TableCell>
-        <TableCell>
+        </TableCellWithStrike>
+        <TableCellWithStrike>
           {priority}
-        </TableCell>
+        </TableCellWithStrike>
       </TableRow>
     );
   }
