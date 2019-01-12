@@ -1,11 +1,11 @@
 import React from "react";
-import TodoItem from "../TodoItem";
-import {ITodoTask} from "../../types/ITodoTask";
 import {Paper, Table, TableBody, TableHead, TableRow} from "@material-ui/core";
 import TableCell from "@material-ui/core/TableCell";
-import "./style.scss";
+import TodoItem from "../TodoItem";
 import TodoStore from "../../stores/TodoStore";
 import {observer} from "mobx-react";
+import "./style.scss";
+import TodoModel from "../../models/TodoModel";
 
 interface ITodoTableProps {
   todoStore: TodoStore;
@@ -15,8 +15,14 @@ interface ITodoTableProps {
 @observer
 export default class extends React.Component<ITodoTableProps> {
 
-  private sortTasks(tasks: ITodoTask[]) {
-    return tasks.slice().sort((task1, task2) => (task1.urgency + task1.urgency) - (task2.urgency + task2.urgency));
+  private sortTasks(todo: TodoModel[]) {
+    return [
+      ...todo
+        .filter((todo) => !todo.done)
+        .sort((task1, task2) => (task1.urgency + task1.urgency) - (task2.urgency + task2.urgency)),
+      ...todo
+        .filter((todo) => todo.done)
+    ];
   }
 
   render() {
@@ -33,8 +39,8 @@ export default class extends React.Component<ITodoTableProps> {
             </TableRow>
           </TableHead>
           <TableBody>
-            {this.props.todoStore.todos.map((task) => (
-              <TodoItem todo={task}/>
+            {this.sortTasks(this.props.todoStore.todos).map((todo) => (
+              <TodoItem todo={todo}/>
             ))}
           </TableBody>
         </Table>

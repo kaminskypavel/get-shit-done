@@ -3,7 +3,6 @@ import TodoModel from "../models/TodoModel";
 import uuidv4 from "uuid/v4";
 import {ITodoTask} from "../types/ITodoTask";
 
-
 export default class TodoStore {
   @observable todos: TodoModel[] = [];
 

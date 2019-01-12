@@ -4,7 +4,6 @@ import {Checkbox, TableCell, TableRow} from "@material-ui/core";
 import {observer} from "mobx-react";
 import {action} from "mobx";
 import TodoModel from "../../models/TodoModel";
-
 import "./index.scss";
 import {Slider} from "@material-ui/lab";
 
@@ -39,7 +38,7 @@ export default class extends Component<ITodoItemProps> {
     const TableCellWithStrike = withStrike(TableCell, this.props.todo);
 
     return (
-      <TableRow key={id.toString()}>
+      <TableRow key={id.toString()} className={done? 'done' : 'undone'}>
         <TableCellWithStrike>
           <Checkbox
             checked={done}
