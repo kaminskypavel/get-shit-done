@@ -8,7 +8,6 @@ export default class TodoModel {
   @observable description: string;
   @observable urgency: number;
   @observable importance: number;
-  @observable priority: number;
   @observable done: boolean;
 
 
@@ -18,8 +17,11 @@ export default class TodoModel {
     this.urgency = urgency;
     this.importance = importance;
     this.description = description;
-    this.priority = importance + urgency;
     this.done = done;
+  }
+
+  @computed get priority() {
+    return this.importance + this.urgency;
   }
 
   static fromJS(store: TodoStore, object: ITodoTask) {
