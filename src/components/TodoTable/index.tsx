@@ -36,7 +36,6 @@ export default class extends React.Component<ITodoTableProps> {
               <TableCell align="center">Urgency</TableCell>
               <TableCell align="center">Importance</TableCell>
               <TableCell align="center">Priority</TableCell>
-              <TableCell align="center">Delete</TableCell>
             </TableRow>
           </TableHead>
           <TableBody>

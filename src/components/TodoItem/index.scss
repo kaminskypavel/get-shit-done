@@ -1,3 +1,8 @@
+@mixin random-bgr() {
+  background: rgb(random(255), random(255), random(255));
+}
+
+
 .todo-item {
 }
 
@@ -19,4 +24,22 @@
 
 .strike {
   text-decoration: line-through;
+}
+
+.todo-action-flex {
+  display: flex;
+  flex-direction: row;
+}
+
+.todo-delete-icon {
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  color: transparentize(black, 0.6);
+
+  :hover {
+    color: black;
+  }
 }

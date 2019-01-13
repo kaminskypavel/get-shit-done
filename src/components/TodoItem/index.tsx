@@ -2,11 +2,11 @@ import * as React from "react";
 import {Component} from "react";
 import {Checkbox, Fab, TableCell, TableRow} from "@material-ui/core";
 import {observer} from "mobx-react";
-import {action} from "mobx";
+import {action, reaction} from "mobx";
 import TodoModel from "../../models/TodoModel";
 import "./index.scss";
-import {Slider} from "@material-ui/lab";
 import DeleteIcon from "@material-ui/icons/Delete";
+import SimpleSlider from "../SimpleSlider/index";
 
 interface ITodoItemProps {
   todo: TodoModel
@@ -40,41 +40,36 @@ export default class extends Component<ITodoItemProps> {
 
 
   render() {
-    const {id, description, importance, urgency, priority, done} = this.props.todo;
-    const TableCellWithStrike = withStrike(TableCell, this.props.todo);
+    const {todo} = this.props;
+    const {id, description, importance, urgency, priority, done} = todo;
+    const TableCellWithStrike = withStrike(TableCell, todo);
 
     return (
       <TableRow key={id.toString()} className={[done ? "done" : "undone", "todo-item"].join(" ")}>
         <TableCellWithStrike>
-          <Checkbox
-            checked={done}
-            onChange={this.handleToggle}
-          />
+          <div className="todo-action-flex">
+            <div className="todo-done-checkbox">
+              <Checkbox
+                checked={done}
+                onChange={this.handleToggle}
+              />
+            </div>
+            <div className="todo-delete-icon">
+              <DeleteIcon onClick={this.handleDelete}/>
+            </div>
+          </div>
         </TableCellWithStrike>
         <TableCellWithStrike>
           {description}
         </TableCellWithStrike>
         <TableCellWithStrike>
-          {urgency}
-          <Slider
-            value={urgency}
-            min={1}
-            max={10}
-            step={1}
-            onChange={(event, value) => {
-              console.log(event, value);
-            }}
-          />
-
+          <SimpleSlider defaultValue={urgency} handleChange={todo.setUrgency}/>
         </TableCellWithStrike>
         <TableCellWithStrike>
-          {importance}
+          <SimpleSlider defaultValue={importance} handleChange={todo.setImportance}/>
         </TableCellWithStrike>
         <TableCellWithStrike>
           {priority}
-        </TableCellWithStrike>
-        <TableCellWithStrike>
-          <DeleteIcon onClick={this.handleDelete}/>
         </TableCellWithStrike>
       </TableRow>
     );

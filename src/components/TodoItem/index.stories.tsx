@@ -35,7 +35,7 @@ storiesOf("TodoItem", module)
       done: false
     }}/>
   ))
-  .add("compeleted", () => TableHOC(
+  .add("done", () => TableHOC(
     // @ts-ignore
     <TodoItem todo={{
       id: "1",

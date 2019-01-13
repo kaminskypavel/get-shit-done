@@ -36,9 +36,13 @@ export default class TodoModel {
     this.store.removeTodo(this);
   }
 
-  setDescription(description: string) {
-    this.description = description;
-  }
+  setUrgency = (urgency: number) => {
+    this.urgency = urgency;
+  };
+
+  setImportance = (importance: number) => {
+    this.importance = importance;
+  };
 
   toJS() {
     return {
