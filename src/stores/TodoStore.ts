@@ -1,20 +1,20 @@
-import {observable, computed, reaction, action} from "mobx";
+import {observable, computed, reaction, action, toJS} from "mobx";
 import TodoModel from "../models/TodoModel";
 import uuidv4 from "uuid/v4";
 import {ITodoTask} from "../types/ITodoTask";
 
 export default class TodoStore {
   @observable todos: TodoModel[] = [];
+  @observable isDirty = false;
 
-  @computed get activeTodoCount() {
-    return this.todos.reduce(
-      (sum, todo) => sum + (todo.done ? 0 : 1),
-      0
-    );
-  }
 
-  @computed get completedCount() {
-    return this.todos.length - this.activeTodoCount;
+  constructor() {
+    reaction(() => this
+        .todos
+        .filter((todo) => todo.toJS()),
+      () => {
+        this.isDirty = true;
+      });
   }
 
   static fromJS(array: ITodoTask[]) {
@@ -23,15 +23,25 @@ export default class TodoStore {
     return todoStore;
   }
 
-  subscribeServerToStore() {
-    reaction(
-      () => this.toJS(),
-      todos => window.fetch && fetch("/api/todos", {
-        method: "post",
-        body: JSON.stringify({todos}),
-        headers: new Headers({"Content-Type": "application/json"})
-      })
-    );
+  @action
+  sortTodos() {
+    const dirtyState = this.isDirty;
+    alert(this.isDirty);
+
+    this.todos = [
+      ...this.todos
+        .filter((todo) => !todo.done)
+        .sort((task1, task2) => (task2.priority) - (task1.priority)),
+      ...this.todos
+        .filter((todo) => todo.done)
+        .sort((task1, task2) => (task2.priority) - (task1.priority))
+
+    ];
+
+    //we don't want a sorting operation to revoke another recalculation
+    alert(this.isDirty);
+    this.isDirty = dirtyState;
+    alert(this.isDirty);
   }
 
   @action
@@ -42,20 +52,6 @@ export default class TodoStore {
   @action
   removeTodo(todo: TodoModel) {
     this.todos = this.todos.filter((e) => e !== todo);
-  }
-
-  @action
-  toggleAll(checked: boolean) {
-    this.todos.forEach(
-      (todo) => todo.done = checked
-    );
-  }
-
-  @action
-  clearCompleted() {
-    this.todos = this.todos.filter(
-      todo => !todo.done
-    );
   }
 
   toJS() {

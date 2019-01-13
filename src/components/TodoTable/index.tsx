@@ -4,30 +4,29 @@ import TableCell from "@material-ui/core/TableCell";
 import TodoItem from "../TodoItem";
 import TodoStore from "../../stores/TodoStore";
 import {observer} from "mobx-react";
+import TodoTableToolbar from "./../TodoTableToolbar";
 import "./style.scss";
-import TodoModel from "../../models/TodoModel";
 
 interface ITodoTableProps {
   todoStore: TodoStore;
 }
 
-
 @observer
 export default class extends React.Component<ITodoTableProps> {
 
-  private sortTasks(todo: TodoModel[]) {
-    return [
-      ...todo
-        .filter((todo) => !todo.done)
-        .sort((task1, task2) => (task1.urgency + task1.urgency) - (task2.urgency + task2.urgency)),
-      ...todo
-        .filter((todo) => todo.done)
-    ];
-  }
-
   render() {
+    const {todoStore} = this.props;
+    const {todos} = todoStore;
+
     return (
       <Paper className="paper">
+        <TodoTableToolbar
+          hintOnRecalculation={todoStore.isDirty}
+          addHandler={alert}
+          recalculateHandler={() => this.sortTodos()}
+          todoStore={todoStore}
+
+        />
         <Table className="table">
           <TableHead>
             <TableRow>
@@ -39,12 +38,15 @@ export default class extends React.Component<ITodoTableProps> {
             </TableRow>
           </TableHead>
           <TableBody>
-            {this.sortTasks(this.props.todoStore.todos).map((todo) => (
-              <TodoItem todo={todo}/>
-            ))}
+            {todos.map((todo) =>
+              <TodoItem todo={todo}/>)}
           </TableBody>
         </Table>
       </Paper>
     );
   };
+
+  private sortTodos() {
+    this.props.todoStore.sortTodos();
+  }
 }

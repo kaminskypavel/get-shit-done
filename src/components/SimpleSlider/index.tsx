@@ -18,13 +18,15 @@ interface ISimplerSliderProps {
   min?: number;
   max?: number;
   step?: number;
-  defaultValue?: number
+  disabled?: boolean;
+  defaultValue?: number;
 }
 
 class SimplerSlider extends React.Component<ISimplerSliderProps> {
   static defaultProps = {
     min: 1,
-    max: 10
+    max: 10,
+    disabled: false
   };
 
 
@@ -35,7 +37,7 @@ class SimplerSlider extends React.Component<ISimplerSliderProps> {
   };
 
   render() {
-    const {classes, handleChange, min, max, step} = this.props;
+    const {classes, handleChange, min, max, step, disabled} = this.props;
     const {value} = this.state;
 
     return (
@@ -48,6 +50,7 @@ class SimplerSlider extends React.Component<ISimplerSliderProps> {
           min={min}
           max={max}
           step={step}
+          disabled={disabled}
           onChange={(event, value) => {
             this.setState({value});
           }}

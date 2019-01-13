@@ -63,10 +63,10 @@ export default class extends Component<ITodoItemProps> {
           {description}
         </TableCellWithStrike>
         <TableCellWithStrike>
-          <SimpleSlider defaultValue={urgency} handleChange={todo.setUrgency}/>
+          <SimpleSlider defaultValue={urgency} handleChange={todo.setUrgency} disabled={done}/>
         </TableCellWithStrike>
         <TableCellWithStrike>
-          <SimpleSlider defaultValue={importance} handleChange={todo.setImportance}/>
+          <SimpleSlider defaultValue={importance} handleChange={todo.setImportance} disabled={done}/>
         </TableCellWithStrike>
         <TableCellWithStrike>
           {priority}

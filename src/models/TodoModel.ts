@@ -47,8 +47,10 @@ export default class TodoModel {
   toJS() {
     return {
       id: this.id,
-      title: this.description,
-      completed: this.done
+      urgency: this.urgency,
+      importance: this.importance,
+      description: this.description,
+      done: this.done
     };
   }
 }
