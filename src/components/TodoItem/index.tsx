@@ -1,6 +1,6 @@
 import * as React from "react";
 import {Component} from "react";
-import {Checkbox, TableCell, TableRow, Typography} from "@material-ui/core";
+import {Checkbox, TableCell, TableRow, Tooltip, Typography} from "@material-ui/core";
 import {observer} from "mobx-react";
 import {action} from "mobx";
 import TodoModel from "../../models/TodoModel";
@@ -48,15 +48,19 @@ export default class extends Component<ITodoItemProps> {
       <TableRow className={[done ? "done" : "undone", "todo-item"].join(" ")}>
         <TableCellWithStrike>
           <div className="todo-action-flex">
-            <div className="todo-done-checkbox">
-              <Checkbox
-                checked={done}
-                onChange={this.handleToggle}
-              />
-            </div>
-            <div className="todo-delete-icon">
-              <DeleteIcon onClick={this.handleDelete}/>
-            </div>
+            <Tooltip title="mark as done">
+              <div className="todo-done-checkbox">
+                <Checkbox
+                  checked={done}
+                  onChange={this.handleToggle}
+                />
+              </div>
+            </Tooltip>
+            <Tooltip title="delete todo">
+              <div className="todo-delete-icon">
+                <DeleteIcon onClick={this.handleDelete}/>
+              </div>
+            </Tooltip>
           </div>
         </TableCellWithStrike>
         <TableCellWithStrike>
@@ -68,11 +72,13 @@ export default class extends Component<ITodoItemProps> {
         <TableCellWithStrike>
           <SimpleSlider defaultValue={importance} handleChange={todo.setImportance} disabled={done}/>
         </TableCellWithStrike>
-        <TableCellWithStrike>
-          <Typography color={"secondary"} variant={"h5"}>
-            {priority}
-          </Typography>
-        </TableCellWithStrike>
+        <Tooltip title="priopriry = important + urgent" aria-label="Add">
+          <TableCellWithStrike>
+            <Typography color={"secondary"} variant={"h5"}>
+              {priority}
+            </Typography>
+          </TableCellWithStrike>
+        </Tooltip>
       </TableRow>
     );
   }
