@@ -2,6 +2,7 @@
   "name": "get-shit-done",
   "version": "0.1.0",
   "private": true,
+  "homepage" : "https://get-shit-done-60d50.firebaseapp.com",
   "dependencies": {
     "@material-ui/core": "^3.8.3",
     "@material-ui/icons": "^3.0.2",
