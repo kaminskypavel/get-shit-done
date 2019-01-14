@@ -37,7 +37,7 @@ class SimplerSlider extends React.Component<ISimplerSliderProps> {
   };
 
   render() {
-    const {classes, handleChange, min, max, step, disabled} = this.props;
+    const {classes, handleChange, min, max, disabled} = this.props;
     const {value} = this.state;
 
     return (
@@ -49,7 +49,7 @@ class SimplerSlider extends React.Component<ISimplerSliderProps> {
           aria-labelledby="label"
           min={min}
           max={max}
-          step={step}
+          step={1}
           disabled={disabled}
           onChange={(event, value) => {
             this.setState({value});
