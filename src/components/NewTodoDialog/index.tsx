@@ -8,7 +8,7 @@ import DialogContentText from "@material-ui/core/DialogContentText";
 import DialogTitle from "@material-ui/core/DialogTitle";
 import TodoStore from "../../stores/TodoStore";
 import {observer} from "mobx-react";
-import "./style.scss"
+import "./style.scss";
 
 interface INewTodoDialogProps {
   todoStore: TodoStore;
@@ -60,6 +60,11 @@ export default class NewTodoDialog extends React.Component<INewTodoDialogProps> 
               fullWidth
               onChange={(evt) => {
                 this.setState({description: evt.target.value});
+              }}
+              onKeyPress={(e) => {
+                if (e.key === "Enter") {
+                  this.confirmDialog();
+                }
               }}
             />
           </DialogContent>
