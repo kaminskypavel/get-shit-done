@@ -2,9 +2,11 @@ import React from "react";
 import {storiesOf} from "@storybook/react";
 import TodoItem from "./index";
 import {Paper, Table, TableBody, TableCell, TableHead, TableRow} from "@material-ui/core";
+import TodoStore from "../../stores/TodoStore";
 
+const todoStore = new TodoStore();
 
-const TableHOC = (todoItem: TodoItem) => (
+const TableHOC = (todoItem: JSX.Element) => (
   <Paper className="paper">
     <Table className="table">
       <TableHead>
@@ -28,7 +30,6 @@ storiesOf("TodoItem", module)
   .add("default", () => TableHOC(
     // @ts-ignore
     <TodoItem todo={{
-      id: "1",
       importance: 1,
       urgency: 1,
       priority: 2,
@@ -36,9 +37,8 @@ storiesOf("TodoItem", module)
     }}/>
   ))
   .add("done", () => TableHOC(
-    // @ts-ignore
+    //@ts-ignore
     <TodoItem todo={{
-      id: "1",
       importance: 5,
       urgency: 5,
       priority: 5,

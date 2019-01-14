@@ -44,7 +44,7 @@ export default class TodoStore {
 
   @action
   addTodo(title: string, urgency: number, importance: number) {
-    this.todos.push(new TodoModel(this, uuidv4(), title, urgency, importance, false));
+    this.todos.push(new TodoModel(this, title, urgency, importance, false));
   }
 
   @action

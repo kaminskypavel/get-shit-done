@@ -1,8 +1,8 @@
 import * as React from "react";
 import {Component} from "react";
-import {Checkbox, Fab, TableCell, TableRow} from "@material-ui/core";
+import {Checkbox, TableCell, TableRow} from "@material-ui/core";
 import {observer} from "mobx-react";
-import {action, reaction} from "mobx";
+import {action} from "mobx";
 import TodoModel from "../../models/TodoModel";
 import "./index.scss";
 import DeleteIcon from "@material-ui/icons/Delete";
@@ -41,11 +41,11 @@ export default class extends Component<ITodoItemProps> {
 
   render() {
     const {todo} = this.props;
-    const {id, description, importance, urgency, priority, done} = todo;
+    const {description, importance, urgency, priority, done} = todo;
     const TableCellWithStrike = withStrike(TableCell, todo);
 
     return (
-      <TableRow key={id.toString()} className={[done ? "done" : "undone", "todo-item"].join(" ")}>
+      <TableRow className={[done ? "done" : "undone", "todo-item"].join(" ")}>
         <TableCellWithStrike>
           <div className="todo-action-flex">
             <div className="todo-done-checkbox">
