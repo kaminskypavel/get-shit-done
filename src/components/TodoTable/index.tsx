@@ -6,7 +6,6 @@ import TodoStore from "../../stores/TodoStore";
 import {observer} from "mobx-react";
 import TodoTableToolbar from "./../TodoTableToolbar";
 import "./style.scss";
-import {action} from "mobx";
 
 interface ITodoTableProps {
   todoStore: TodoStore;
@@ -26,16 +25,15 @@ export default class extends React.Component<ITodoTableProps> {
           addHandler={() => this.showNewTodoDialog()}
           recalculateHandler={() => this.sortTodos()}
           todoStore={todoStore}
-
         />
-        <Table className="table">
+        <Table className="table" style={{tableLayout: 'auto'}}>
           <TableHead>
             <TableRow>
-              <TableCell align="center">Done</TableCell>
-              <TableCell align="center">Description</TableCell>
-              <TableCell align="center">Urgency</TableCell>
-              <TableCell align="center">Importance</TableCell>
-              <TableCell align="center">Priority</TableCell>
+              <TableCell align="left" style={{width:'10%'}} >Done</TableCell>
+              <TableCell align="left">Description</TableCell>
+              <TableCell align="left" style={{width:'15%'}}>Urgency</TableCell>
+              <TableCell align="left" style={{width:'15%'}}>Importance</TableCell>
+              <TableCell align="left" style={{width:'10%'}}>Priority</TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
@@ -47,12 +45,10 @@ export default class extends React.Component<ITodoTableProps> {
     );
   };
 
-  @action
   sortTodos() {
     this.props.todoStore.sortTodos();
   }
 
-  @action
   showNewTodoDialog() {
     this.props.todoStore.showNewTodoDialog = true;
   }

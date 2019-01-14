@@ -1,6 +1,6 @@
 import * as React from "react";
 import {Component} from "react";
-import {Checkbox, TableCell, TableRow} from "@material-ui/core";
+import {Checkbox, TableCell, TableRow, Typography} from "@material-ui/core";
 import {observer} from "mobx-react";
 import {action} from "mobx";
 import TodoModel from "../../models/TodoModel";
@@ -20,7 +20,7 @@ function withStrike(WrappedComponent: any, todo: TodoModel) {
 
     render() {
       const {done} = todo;
-      return <WrappedComponent align="center" className={done ? "strike" : ""} {...this.props} />;
+      return <WrappedComponent align="left" className={done ? "strike" : ""} {...this.props} />;
     }
   };
 }
@@ -69,7 +69,9 @@ export default class extends Component<ITodoItemProps> {
           <SimpleSlider defaultValue={importance} handleChange={todo.setImportance} disabled={done}/>
         </TableCellWithStrike>
         <TableCellWithStrike>
-          {priority}
+          <Typography color={"secondary"} variant={"h5"}>
+            {priority}
+          </Typography>
         </TableCellWithStrike>
       </TableRow>
     );
