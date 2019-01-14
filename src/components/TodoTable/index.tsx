@@ -6,6 +6,7 @@ import TodoStore from "../../stores/TodoStore";
 import {observer} from "mobx-react";
 import TodoTableToolbar from "./../TodoTableToolbar";
 import "./style.scss";
+import {action} from "mobx";
 
 interface ITodoTableProps {
   todoStore: TodoStore;
@@ -22,7 +23,7 @@ export default class extends React.Component<ITodoTableProps> {
       <Paper className="paper">
         <TodoTableToolbar
           hintOnRecalculation={todoStore.isDirty}
-          addHandler={alert}
+          addHandler={() => this.showNewTodoDialog()}
           recalculateHandler={() => this.sortTodos()}
           todoStore={todoStore}
 
@@ -46,7 +47,13 @@ export default class extends React.Component<ITodoTableProps> {
     );
   };
 
-  private sortTodos() {
+  @action
+  sortTodos() {
     this.props.todoStore.sortTodos();
+  }
+
+  @action
+  showNewTodoDialog() {
+    this.props.todoStore.showNewTodoDialog = true;
   }
 }

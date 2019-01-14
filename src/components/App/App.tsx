@@ -3,6 +3,7 @@ import "./App.scss";
 import TodoTable from "../TodoTable";
 import TodoStore from "../../stores/TodoStore";
 import DevTool from "mobx-react-devtools";
+import NewTodoDialog from "../NewTodoDialog";
 
 const tasks = [1, 2, 3, 4, 5].map((taskId) => {
     const importance = Math.floor(Math.random() * 10);
@@ -30,6 +31,7 @@ class App extends Component {
           <br/>
           <TodoTable todoStore={todoStore}/>
         </div>
+        <NewTodoDialog todoStore={todoStore}/>
       </div>
     );
   }

@@ -8,6 +8,7 @@ import AddIcon from "@material-ui/icons/Add";
 import classnames from "classnames";
 import TodoStore from "../../stores/TodoStore";
 import "./style.scss";
+import {observer} from "mobx-react";
 
 interface ITodoTableToolbarProps {
   addHandler: () => void;
@@ -16,13 +17,14 @@ interface ITodoTableToolbarProps {
   todoStore: TodoStore;
 }
 
+@observer
 class TodoTableToolbar extends Component<ITodoTableToolbarProps> {
   state = {
     hintOnRecalculation: this.props.hintOnRecalculation
   };
 
   render() {
-    let {addHandler, recalculateHandler, todoStore} = this.props;
+    let {recalculateHandler} = this.props;
 
     return (
       <div>
@@ -35,7 +37,7 @@ class TodoTableToolbar extends Component<ITodoTableToolbarProps> {
               <Fab
                 variant="extended"
                 color="default"
-                onClick={() => addHandler}>
+                onClick={() => this.props.addHandler()}>
                 <AddIcon/>
                 Add
               </Fab>

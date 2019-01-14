@@ -6,6 +6,7 @@ import {ITodoTask} from "../types/ITodoTask";
 export default class TodoStore {
   @observable todos: TodoModel[] = [];
   @observable isDirty = false;
+  @observable showNewTodoDialog = false;
 
 
   constructor() {
@@ -26,7 +27,6 @@ export default class TodoStore {
   @action
   sortTodos() {
     const dirtyState = this.isDirty;
-    alert(this.isDirty);
 
     this.todos = [
       ...this.todos
@@ -39,9 +39,7 @@ export default class TodoStore {
     ];
 
     //we don't want a sorting operation to revoke another recalculation
-    alert(this.isDirty);
     this.isDirty = dirtyState;
-    alert(this.isDirty);
   }
 
   @action
