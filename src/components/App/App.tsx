@@ -1,8 +1,8 @@
 import React, {Component} from "react";
-import "./App.scss";
 import TodoTable from "../TodoTable";
 import TodoStore from "../../stores/TodoStore";
 import NewTodoDialog from "../NewTodoDialog";
+import "./App.scss";
 
 const generateTodo = (description: string, importance: number, urgency: number) => ({
   description,
@@ -29,6 +29,15 @@ class App extends Component {
           <TodoTable todoStore={todoStore}/>
         </div>
         <NewTodoDialog todoStore={todoStore}/>
+        <footer>
+          <span color={"secondary"}>
+            <p className="footer">
+              Made in Tel-Aviv with
+              <span id="heart">♥</span> by
+              <b> <a href="http://www.pavel-kaminsky.com">Pavel 'PK' Kaminsky</a></b>
+            </p>
+          </span>
+        </footer>
       </div>
     );
   }
