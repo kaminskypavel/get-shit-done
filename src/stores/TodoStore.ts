@@ -52,7 +52,13 @@ export default class TodoStore {
     this.todos = this.todos.filter((e) => e !== todo);
   }
 
+  @action
+  emptyTodos() {
+    this.todos = [];
+  }
+
   toJS() {
     return this.todos.map(todo => todo.toJS());
   }
+
 }

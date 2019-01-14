@@ -2,9 +2,9 @@ import React, {Component} from "react";
 import {withStyles} from "@material-ui/core/styles";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
-import Typography from "@material-ui/core/Typography";
 import {Fab} from "@material-ui/core";
 import AddIcon from "@material-ui/icons/Add";
+import DeleteSweep from "@material-ui/icons/DeleteSweep";
 import classnames from "classnames";
 import TodoStore from "../../stores/TodoStore";
 import "./style.scss";
@@ -30,9 +30,14 @@ class TodoTableToolbar extends Component<ITodoTableToolbarProps> {
       <div>
         <AppBar position="static">
           <Toolbar className="toolbar-fabs">
-            <Typography variant="h6" color="inherit">
-              Actions
-            </Typography>
+            <Fab variant="extended"
+                 color="default"
+                 onClick={() => {
+                   this.props.todoStore.emptyTodos();
+                 }}>
+              <DeleteSweep/>
+              Reset
+            </Fab>
             <div>
               <Fab
                 variant="extended"
@@ -48,7 +53,7 @@ class TodoTableToolbar extends Component<ITodoTableToolbarProps> {
                      this.setState({hintOnRecalculation: false});
                      recalculateHandler();
                    }}>
-                Recalculate
+                Prioritize
               </Fab>
             </div>
           </Toolbar>

@@ -3,7 +3,6 @@ import {storiesOf} from "@storybook/react";
 import NewTodoDialog from "./index";
 import TodoStore from "../../stores/TodoStore";
 import {Button} from "@material-ui/core";
-import {inject, Observer, observer} from "mobx-react";
 
 const todoStore = new TodoStore();
 todoStore.addTodo("task1", 5, 5);
