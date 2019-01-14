@@ -11,7 +11,5 @@ https://get-shit-done-60d50.firebaseapp.com/
 ## todo 
 * enzyme and jest tests and "storyshots" 
 * wallaby configuration
-* fix readme (tech) , demo etc
-* firebase deployment
 * HMR 
 * blogpost
