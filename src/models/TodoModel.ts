@@ -30,6 +30,7 @@ export default class TodoModel {
 
   toggle() {
     this.done = !this.done;
+    this.store.sortTodos();
   }
 
   remove() {
