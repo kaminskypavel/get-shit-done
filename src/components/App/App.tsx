@@ -25,7 +25,7 @@ class App extends Component {
   public render() {
     return (
       <div className="App">
-        <DevTool/>
+        {/*<DevTool/>*/}
         <div className="TodoTable">
           <h1>Let's get shit done today 🕗</h1>
           <br/>
