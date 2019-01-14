@@ -5,9 +5,9 @@ import Toolbar from "@material-ui/core/Toolbar";
 import Typography from "@material-ui/core/Typography";
 import {Fab} from "@material-ui/core";
 import AddIcon from "@material-ui/icons/Add";
-import "./style.scss";
 import classnames from "classnames";
 import TodoStore from "../../stores/TodoStore";
+import "./style.scss";
 
 interface ITodoTableToolbarProps {
   addHandler: () => void;
