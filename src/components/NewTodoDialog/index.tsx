@@ -8,6 +8,7 @@ import DialogContentText from "@material-ui/core/DialogContentText";
 import DialogTitle from "@material-ui/core/DialogTitle";
 import TodoStore from "../../stores/TodoStore";
 import {observer} from "mobx-react";
+import "./style.scss"
 
 interface INewTodoDialogProps {
   todoStore: TodoStore;
@@ -42,7 +43,8 @@ export default class NewTodoDialog extends React.Component<INewTodoDialogProps> 
         <Dialog
           open={this.props.todoStore.showNewTodoDialog}
           onClose={this.hideDialog}
-          aria-labelledby="form-dialog-title">
+          aria-labelledby="form-dialog-title"
+          className="new-item-dialog">
           <DialogTitle id="form-dialog-title">New Task 📃✏</DialogTitle>
           <DialogContent>
             <DialogContentText>
