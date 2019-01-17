@@ -13,6 +13,8 @@ https://get-shit-done-60d50.firebaseapp.com/
 * change "Add" and "reset" buttons order
 * fix print view layout
 * add a download images button
+* export csv
+* serialize to firebase
 * support google calendar api
 * enzyme and jest tests and "storyshots" 
 * wallaby configuration
