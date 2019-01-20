@@ -25,9 +25,11 @@ I've been using it for the past week or so, and it really helped me to get my sc
 
 1. I need this tool for myself, meaning, there might be some glitches, bugs or UI improvements - do let me know I'd like to improve the tool.
 
-2. I don't know if this is THE BEST way, but it is A GOOD WAY which worked for me. Feel free to open a discussion on its effectiveness 
+2.  I don't know if this is "THE BEST" model, but it is "A GOOD ENOUGH" model which worked for me. Feel free to open a discussion on its effectiveness.
 
 3. The tool is open source, feel free to PR, Issue or help with the design.
+
+4. If you find it useful, do share and let me know
 
 ----
 
