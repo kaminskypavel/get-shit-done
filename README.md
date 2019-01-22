@@ -35,10 +35,8 @@ I've been using it for the past week or so, and it really helped me to get my sc
 
 
 ## todo 
-* add a confirm dialog for reset
-* change "Add" and "reset" buttons order
+
 * fix print view layout
-* add a download images button
 * export csv
 * serialize to firebase
 * support google calendar api
