@@ -5,6 +5,7 @@ import Toolbar from "@material-ui/core/Toolbar";
 import {Fab} from "@material-ui/core";
 import AddIcon from "@material-ui/icons/Add";
 import DeleteSweep from "@material-ui/icons/DeleteSweep";
+import PrintRounded from "@material-ui/icons/PrintRounded";
 import classnames from "classnames";
 import TodoStore from "../../stores/TodoStore";
 import "./style.scss";
@@ -47,6 +48,13 @@ class TodoTableToolbar extends Component<ITodoTableToolbarProps> {
                    }}>
                 <DeleteSweep/>
                 Reset
+              </Fab>
+              <Fab variant="extended"
+                   color="default"
+                   onClick={() => {
+                     window.print();
+                   }}>
+                <PrintRounded/>
               </Fab>
               <Fab variant="extended"
                    color="secondary"
