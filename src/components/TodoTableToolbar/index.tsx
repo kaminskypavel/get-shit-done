@@ -30,21 +30,21 @@ class TodoTableToolbar extends Component<ITodoTableToolbarProps> {
       <div>
         <AppBar position="static">
           <Toolbar className="toolbar-fabs">
-            <Fab variant="extended"
-                 color="default"
-                 onClick={() => {
-                   this.props.todoStore.emptyTodos();
-                 }}>
-              <DeleteSweep/>
-              Reset
+            <Fab
+              variant="extended"
+              color="default"
+              onClick={() => this.props.addHandler()}>
+              <AddIcon/>
+              Add
             </Fab>
             <div>
-              <Fab
-                variant="extended"
-                color="default"
-                onClick={() => this.props.addHandler()}>
-                <AddIcon/>
-                Add
+              <Fab variant="extended"
+                   color="default"
+                   onClick={() => {
+                     this.props.todoStore.emptyTodos();
+                   }}>
+                <DeleteSweep/>
+                Reset
               </Fab>
               <Fab variant="extended"
                    color="secondary"
