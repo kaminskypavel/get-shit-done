@@ -14,11 +14,33 @@ export default class TodoStore {
         .todos
         .filter((todo) => todo.toJS()),
       () => {
+        const todos = this.todos.map(todo => todo.toJS());
+        localStorage.setItem("todos", JSON.stringify(todos));
         this.isDirty = true;
       });
+
+    const generateTodo = (description: string, importance: number, urgency: number) => ({
+      description,
+      importance,
+      urgency,
+      priority: importance * urgency,
+      done: false
+    });
+
+    this.todos = JSON
+      .parse(localStorage.getItem("todos") || "[]")
+      .map((item: ITodoTask) => TodoModel.fromJS(this, item));
+
+    if (!this.todos.length) {
+      this.todos = [
+        generateTodo("Buy Flowers", 3, 6),
+        generateTodo("Call Customer", 9, 9),
+        generateTodo("Feed The Cat", 8, 2)
+      ].map((item: ITodoTask) => TodoModel.fromJS(this, item));
+    }
   }
 
-  static fromJS(array: ITodoTask[]) {
+  fromJS(array: ITodoTask[]) {
     const todoStore = new TodoStore();
     todoStore.todos = array.map((item: ITodoTask) => TodoModel.fromJS(todoStore, item));
     return todoStore;

@@ -4,24 +4,26 @@ import TodoStore from "../../stores/TodoStore";
 import NewTodoDialog from "../NewTodoDialog";
 import "./App.scss";
 
-const generateTodo = (description: string, importance: number, urgency: number) => ({
-  description,
-  importance,
-  urgency,
-  priority: importance * urgency,
-  done: false
-});
-
-const todoStore = TodoStore.fromJS([
-  generateTodo("Buy Flowers", 3, 6),
-  generateTodo("Call Customer", 9, 9),
-  generateTodo("Feed The Cat", 8, 2)
-]);
+const todoStore = new TodoStore();
 
 class App extends Component {
   public render() {
     return (
       <div className="App">
+        <header>🖨
+          <div className="chanelog">
+            <ul>
+              <h3>New features 🔔</h3>
+              <li>31-01-2019 : Added auto save and load, so no worries on refresh</li>
+              <li>22-01-2019 : New print button</li>
+              <br/>
+              <small>have more features request? submit to
+                <a href="http://www.pavel-kaminsky.com"> Pavel 'PK' Kaminsky</a>
+              </small>
+            </ul>
+          </div>
+
+        </header>
         {/*<DevTool/>*/}
         <div className="TodoTable">
           <h1>Let's get shit done today 🕗</h1>

@@ -33,6 +33,14 @@ I've been using it for the past week or so, and it really helped me to get my sc
 
 ----
 
+### Changes
+
+* 31-01-2019  
+Added auto save and load, so no worries on refresh
+  
+* 22-01-2019  
+New print button   
+
 
 ## todo 
 
