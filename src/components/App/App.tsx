@@ -35,8 +35,8 @@ class App extends Component {
         <footer>
           <span color={"secondary"}>
             <p className="footer">
-              Made in Tel-Aviv with
-              <span id="heart">♥</span> by
+              Made with
+              <span id="heart"> ♥</span> by
               <b> <a href="http://www.pavel-kaminsky.com">Pavel 'PK' Kaminsky</a></b>
             </p>
           </span>
