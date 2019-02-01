@@ -7,25 +7,28 @@ export default class TodoModel {
   @observable description: string;
   @observable urgency: number;
   @observable impact: number;
+  @observable easiness: number;
   @observable done: boolean;
 
 
-  constructor(store: TodoStore, description: string, urgency: number, impact: number, done: boolean) {
+  constructor(store: TodoStore, description: string, urgency: number, impact: number, easiness: number, done: boolean) {
     this.store = store;
     this.urgency = urgency;
     this.impact = impact;
     this.description = description;
+    this.easiness = easiness;
     this.done = done;
   }
 
   @computed get priority() {
-    return this.impact + this.urgency;
+    return this.impact + this.urgency + this.easiness;
   }
 
   static fromJS(store: TodoStore, object: ITodoTask) {
     //polyfilling for previously saved lists where "impact" was called "importance
     const impact = object.impact || object.importance || 5;
-    return new TodoModel(store, object.description, object.urgency, impact, object.done);
+    const easiness = object.easiness || 5;
+    return new TodoModel(store, object.description, object.urgency, impact, easiness, object.done);
   }
 
   toggle() {
@@ -43,6 +46,10 @@ export default class TodoModel {
 
   setImpact = (impact: number) => {
     this.impact = impact;
+  };
+
+  setEasiness = (easiness: number) => {
+    this.easiness = easiness;
   };
 
   toJS() {

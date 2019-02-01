@@ -33,6 +33,7 @@ storiesOf("TodoItem", module)
       impact: 1,
       urgency: 1,
       priority: 2,
+      easiness: 8,
       done: false
     }}/>
   ))
@@ -42,6 +43,7 @@ storiesOf("TodoItem", module)
       impact: 5,
       urgency: 5,
       priority: 5,
+      easiness: 5,
       done: true
     }}/>
   ));

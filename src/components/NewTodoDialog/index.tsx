@@ -33,7 +33,7 @@ export default class NewTodoDialog extends React.Component<INewTodoDialogProps> 
     const {todoStore} = this.props;
     if (description.length > 0) {
       this.hideDialog();
-      todoStore.addTodo(description, 5, 5);
+      todoStore.addTodo(description, 5, 5, 5);
     }
   };
 

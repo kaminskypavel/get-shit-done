@@ -5,8 +5,8 @@ import TodoStore from "../../stores/TodoStore";
 import {Button} from "@material-ui/core";
 
 const todoStore = new TodoStore();
-todoStore.addTodo("task1", 5, 5);
-todoStore.addTodo("task2", 6, 4);
+todoStore.addTodo("task1", 5, 5, 5);
+todoStore.addTodo("task2", 6, 4, 5);
 
 
 const listableHOC = (component: JSX.Element) => (

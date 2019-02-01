@@ -19,11 +19,12 @@ export default class TodoStore {
         this.isDirty = true;
       });
 
-    const generateTodo = (description: string, impact: number, urgency: number) => ({
+    const generateTodo = (description: string, impact: number, urgency: number, easiness: number) => ({
       description,
       impact,
       urgency,
-      priority: impact + urgency,
+      easiness,
+      priority: impact + urgency + easiness,
       done: false
     });
 
@@ -33,9 +34,9 @@ export default class TodoStore {
 
     if (!this.todos.length) {
       this.todos = [
-        generateTodo("Buy Flowers", 3, 6),
-        generateTodo("Call Customer", 9, 9),
-        generateTodo("Feed The Cat", 8, 2)
+        generateTodo("Buy Flowers", 3, 6, 1),
+        generateTodo("Call Customer", 9, 9, 7),
+        generateTodo("Feed The Cat", 8, 2, 8)
       ].map((item: ITodoTask) => TodoModel.fromJS(this, item));
     }
   }
@@ -65,8 +66,8 @@ export default class TodoStore {
   }
 
   @action
-  addTodo(title: string, urgency: number, impact: number) {
-    this.todos.push(new TodoModel(this, title, urgency, impact, false));
+  addTodo(title: string, urgency: number, impact: number, easiness: number) {
+    this.todos.push(new TodoModel(this, title, urgency, impact, easiness, false));
   }
 
   @action
