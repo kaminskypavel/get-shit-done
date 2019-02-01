@@ -35,6 +35,9 @@ I've been using it for the past week or so, and it really helped me to get my sc
 
 ### Changes
 
+* 01-02-2019  
+Rename "Importance" to "Impact" + add "Easiness" toggle
+
 * 31-01-2019  
 Added auto save and load, so no worries on refresh
   
