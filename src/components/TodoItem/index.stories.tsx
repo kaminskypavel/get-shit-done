@@ -14,7 +14,7 @@ const TableHOC = (todoItem: JSX.Element) => (
           <TableCell align="center">Done</TableCell>
           <TableCell align="center">Description</TableCell>
           <TableCell align="center">Urgency</TableCell>
-          <TableCell align="center">Importance</TableCell>
+          <TableCell align="center">Impact</TableCell>
           <TableCell align="center">Priority</TableCell>
           <TableCell align="center">Delete</TableCell>
         </TableRow>
@@ -30,7 +30,7 @@ storiesOf("TodoItem", module)
   .add("default", () => TableHOC(
     // @ts-ignore
     <TodoItem todo={{
-      importance: 1,
+      impact: 1,
       urgency: 1,
       priority: 2,
       done: false
@@ -39,7 +39,7 @@ storiesOf("TodoItem", module)
   .add("done", () => TableHOC(
     //@ts-ignore
     <TodoItem todo={{
-      importance: 5,
+      impact: 5,
       urgency: 5,
       priority: 5,
       done: true

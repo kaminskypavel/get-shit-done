@@ -32,7 +32,7 @@ export default class extends React.Component<ITodoTableProps> {
               <TableCell align="left" style={{width:'10%'}} >Done</TableCell>
               <TableCell align="left">Description</TableCell>
               <TableCell align="left" style={{width:'15%'}}>Urgency</TableCell>
-              <TableCell align="left" style={{width:'15%'}}>Importance</TableCell>
+              <TableCell align="left" style={{width:'15%'}}>Impact</TableCell>
               <TableCell align="left" style={{width:'10%'}}>Priority</TableCell>
             </TableRow>
           </TableHead>

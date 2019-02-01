@@ -10,10 +10,11 @@ class App extends Component {
   public render() {
     return (
       <div className="App">
-        <header>🖨
+        <header>
           <div className="chanelog">
             <ul>
               <h3>New features 🔔</h3>
+              <li>01-02-2019 : rename "Importance" to "Impact" + add "Easiness" toggle</li>
               <li>31-01-2019 : Added auto save and load, so no worries on refresh</li>
               <li>22-01-2019 : New print button</li>
               <br/>

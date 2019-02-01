@@ -19,11 +19,11 @@ export default class TodoStore {
         this.isDirty = true;
       });
 
-    const generateTodo = (description: string, importance: number, urgency: number) => ({
+    const generateTodo = (description: string, impact: number, urgency: number) => ({
       description,
-      importance,
+      impact,
       urgency,
-      priority: importance * urgency,
+      priority: impact + urgency,
       done: false
     });
 
@@ -65,8 +65,8 @@ export default class TodoStore {
   }
 
   @action
-  addTodo(title: string, urgency: number, importance: number) {
-    this.todos.push(new TodoModel(this, title, urgency, importance, false));
+  addTodo(title: string, urgency: number, impact: number) {
+    this.todos.push(new TodoModel(this, title, urgency, impact, false));
   }
 
   @action

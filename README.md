@@ -12,7 +12,7 @@ https://get-shit-done-60d50.firebaseapp.com/
 Lately, I've been struggling with "time management" as the number of tasks is always bigger than the amount of time we have on our hands, therefore in order to achieve maximum efficiency it's crucial to prioritize in a deterministic matter.
 
 My model implies only 2 factors (for simplicity's sake) 
-  1. I = Importance (biggest impact) 📢
+  1. I = impact (very important) 📢
   2. U = Urgency (cannot postpone) 🔥
 
 <b>where P = U + I.</b>

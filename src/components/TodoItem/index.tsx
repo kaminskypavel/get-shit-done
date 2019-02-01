@@ -41,7 +41,7 @@ export default class extends Component<ITodoItemProps> {
 
   render() {
     const {todo} = this.props;
-    const {description, importance, urgency, priority, done} = todo;
+    const {description, impact, urgency, priority, done} = todo;
     const TableCellWithStrike = withStrike(TableCell, todo);
 
     return (
@@ -70,9 +70,9 @@ export default class extends Component<ITodoItemProps> {
           <SimpleSlider defaultValue={urgency} handleChange={todo.setUrgency} disabled={done}/>
         </TableCellWithStrike>
         <TableCellWithStrike>
-          <SimpleSlider defaultValue={importance} handleChange={todo.setImportance} disabled={done}/>
+          <SimpleSlider defaultValue={impact} handleChange={todo.setImpact} disabled={done}/>
         </TableCellWithStrike>
-        <Tooltip title="priopriry = important + urgent" aria-label="Add">
+        <Tooltip title="priopriry = impact + urgent" aria-label="Add">
           <TableCellWithStrike>
             <Typography color={"secondary"} variant={"h5"}>
               {priority}
