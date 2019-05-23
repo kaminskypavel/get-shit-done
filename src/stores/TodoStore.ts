@@ -77,7 +77,7 @@ export default class TodoStore {
 
   @action
   emptyTodos() {
-    this.todos = [];
+    this.todos = this.todos.filter(todo => !todo.done);
   }
 
   toJS() {

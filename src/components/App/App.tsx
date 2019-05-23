@@ -14,6 +14,7 @@ class App extends Component {
           <div className="chanelog">
             <ul>
               <h3>New features 🔔</h3>
+              <li>23-05-2019 : rename "Reset" to "Delete" and delete only selected tasks</li>
               <li>01-02-2019 : rename "Importance" to "Impact" + add "Easiness" toggle</li>
               <li>31-01-2019 : Added auto save and load, so no worries on refresh</li>
               <li>22-01-2019 : New print button</li>

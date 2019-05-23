@@ -42,12 +42,12 @@ class TodoTableToolbar extends Component<ITodoTableToolbarProps> {
               <Fab variant="extended"
                    color="default"
                    onClick={() => {
-                     if (confirm("Are you sure?")) {
+                     if (confirm("This will delete all the selected tasks.\nAre you sure?")) {
                        this.props.todoStore.emptyTodos();
                      }
                    }}>
                 <DeleteSweep/>
-                Reset
+                Delete
               </Fab>
               <Fab variant="extended"
                    color="default"
