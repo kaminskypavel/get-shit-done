@@ -1,9 +1,9 @@
-# get-shit-done
+# "Get shit done"
 a simple task prioritaizer 📃✏ = ✅.  
-**Read the full post on [medium](https://medium.com/@kaminskypavel/why-i-developed-get-shit-done-app-and-why-you-should-be-using-it-too-d3207e13ae6e)**
+**Read the full post on [Medium](https://medium.com/@kaminskypavel/why-i-developed-get-shit-done-app-and-why-you-should-be-using-it-too-d3207e13ae6e)**
 
 ## Demo
-[try online](https://get-shit-done-60d50.firebaseapp.com/)
+[try online](https://get-shit-done.pavel-kaminsky.com/)
 
 ![demo image](./assets/demo.gif)
 
