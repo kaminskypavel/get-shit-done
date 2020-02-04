@@ -1,15 +1,24 @@
-import React, {Component} from "react";
+import React, {Component, ComponentType} from "react";
 import {withStyles} from "@material-ui/core/styles";
 import AppBar from "@material-ui/core/AppBar";
-import Toolbar from "@material-ui/core/Toolbar";
+import Toolbar, {ToolbarProps} from "@material-ui/core/Toolbar";
 import {Fab} from "@material-ui/core";
 import AddIcon from "@material-ui/icons/Add";
 import DeleteSweep from "@material-ui/icons/DeleteSweep";
 import PrintRounded from "@material-ui/icons/PrintRounded";
-import classnames from "classnames";
 import TodoStore from "../../stores/TodoStore";
-import "./style.scss";
 import {observer} from "mobx-react";
+import styled from "styled-components";
+
+const StyledToolbar = styled<ComponentType<ToolbarProps>>(Toolbar)`
+  display: flex;
+  flex-flow: row;
+  justify-content: space-between;
+
+  button {
+    margin: 10px;
+  }
+`;
 
 interface ITodoTableToolbarProps {
   addHandler: () => void;
@@ -20,17 +29,13 @@ interface ITodoTableToolbarProps {
 
 @observer
 class TodoTableToolbar extends Component<ITodoTableToolbarProps> {
-  state = {
-    hintOnRecalculation: this.props.hintOnRecalculation
-  };
-
   render() {
     const {recalculateHandler} = this.props;
 
     return (
       <div>
         <AppBar position="static">
-          <Toolbar className="toolbar-fabs">
+          <StyledToolbar>
             <Fab variant="extended" color="default" onClick={() => this.props.addHandler()}>
               <AddIcon />
               Add
@@ -60,16 +65,14 @@ class TodoTableToolbar extends Component<ITodoTableToolbarProps> {
               <Fab
                 variant="extended"
                 color="secondary"
-                className={classnames({pulse: this.state.hintOnRecalculation})}
                 onClick={() => {
-                  this.setState({hintOnRecalculation: false});
                   recalculateHandler();
                 }}
               >
                 Prioritize
               </Fab>
             </div>
-          </Toolbar>
+          </StyledToolbar>
         </AppBar>
       </div>
     );
