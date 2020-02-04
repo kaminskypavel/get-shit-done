@@ -1,14 +1,18 @@
-import React from "react";
+import React, {ComponentType} from "react";
 import Button from "@material-ui/core/Button";
 import TextField from "@material-ui/core/TextField";
-import Dialog from "@material-ui/core/Dialog";
+import Dialog, {DialogProps} from "@material-ui/core/Dialog";
 import DialogActions from "@material-ui/core/DialogActions";
 import DialogContent from "@material-ui/core/DialogContent";
 import DialogContentText from "@material-ui/core/DialogContentText";
 import DialogTitle from "@material-ui/core/DialogTitle";
 import TodoStore from "../../stores/TodoStore";
 import {observer} from "mobx-react";
-import "./style.scss";
+import styled from "styled-components";
+
+const StyledDialog = styled<ComponentType<DialogProps>>(Dialog)`
+  text-align: left;
+`;
 
 interface INewTodoDialogProps {
   todoStore: TodoStore;
@@ -40,11 +44,10 @@ export default class NewTodoDialog extends React.Component<INewTodoDialogProps> 
   render() {
     return (
       <div>
-        <Dialog
+        <StyledDialog
           open={this.props.todoStore.showNewTodoDialog}
           onClose={this.hideDialog}
           aria-labelledby="form-dialog-title"
-          className="new-item-dialog"
         >
           <DialogTitle id="form-dialog-title">New Task 📃✏</DialogTitle>
           <DialogContent>
@@ -80,7 +83,7 @@ export default class NewTodoDialog extends React.Component<INewTodoDialogProps> 
               Add
             </Button>
           </DialogActions>
-        </Dialog>
+        </StyledDialog>
       </div>
     );
   }
