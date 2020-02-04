@@ -75,7 +75,7 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "lerna run --stream precommit"
+      "pre-commit": "npm run lint"
     }
   }
 }
