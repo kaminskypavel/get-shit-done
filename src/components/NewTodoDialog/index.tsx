@@ -44,12 +44,16 @@ export default class NewTodoDialog extends React.Component<INewTodoDialogProps> 
           open={this.props.todoStore.showNewTodoDialog}
           onClose={this.hideDialog}
           aria-labelledby="form-dialog-title"
-          className="new-item-dialog">
+          className="new-item-dialog"
+        >
           <DialogTitle id="form-dialog-title">New Task 📃✏</DialogTitle>
           <DialogContent>
             <DialogContentText>
-              What do you want to do today?<br/>
-              <i>remember! tasks should be <b>concrete</b> and should be accomplised today!</i>
+              What do you want to do today?
+              <br />
+              <i>
+                remember! tasks should be <b>concrete</b> and should be accomplised today!
+              </i>
               <i>you'll also want to set a priority and urgency in the next screen</i>
             </DialogContentText>
             <TextField

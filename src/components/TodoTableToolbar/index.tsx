@@ -25,44 +25,47 @@ class TodoTableToolbar extends Component<ITodoTableToolbarProps> {
   };
 
   render() {
-    let {recalculateHandler} = this.props;
+    const {recalculateHandler} = this.props;
 
     return (
       <div>
         <AppBar position="static">
           <Toolbar className="toolbar-fabs">
-            <Fab
-              variant="extended"
-              color="default"
-              onClick={() => this.props.addHandler()}>
-              <AddIcon/>
+            <Fab variant="extended" color="default" onClick={() => this.props.addHandler()}>
+              <AddIcon />
               Add
             </Fab>
             <div>
-              <Fab variant="extended"
-                   color="default"
-                   onClick={() => {
-                     if (confirm("This will delete all the selected tasks.\nAre you sure?")) {
-                       this.props.todoStore.emptyTodos();
-                     }
-                   }}>
-                <DeleteSweep/>
+              <Fab
+                variant="extended"
+                color="default"
+                onClick={() => {
+                  if (confirm("This will delete all the selected tasks.\nAre you sure?")) {
+                    this.props.todoStore.emptyTodos();
+                  }
+                }}
+              >
+                <DeleteSweep />
                 Delete
               </Fab>
-              <Fab variant="extended"
-                   color="default"
-                   onClick={() => {
-                     window.print();
-                   }}>
-                <PrintRounded/>
+              <Fab
+                variant="extended"
+                color="default"
+                onClick={() => {
+                  window.print();
+                }}
+              >
+                <PrintRounded />
               </Fab>
-              <Fab variant="extended"
-                   color="secondary"
-                   className={classnames({"pulse": this.state.hintOnRecalculation})}
-                   onClick={() => {
-                     this.setState({hintOnRecalculation: false});
-                     recalculateHandler();
-                   }}>
+              <Fab
+                variant="extended"
+                color="secondary"
+                className={classnames({pulse: this.state.hintOnRecalculation})}
+                onClick={() => {
+                  this.setState({hintOnRecalculation: false});
+                  recalculateHandler();
+                }}
+              >
                 Prioritize
               </Fab>
             </div>

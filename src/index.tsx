@@ -14,12 +14,12 @@ ReactGA.pageview(window.location.pathname + window.location.search);
 if (isProduction()) {
   window.addEventListener("beforeunload", (ev) => {
     ev.preventDefault();
-    return ev.returnValue = "Are you sure you want to close?";
+    return (ev.returnValue = "Are you sure you want to close?");
   });
 }
 
 // lets rock
-ReactDOM.render(<App/>, document.getElementById("root"));
+ReactDOM.render(<App />, document.getElementById("root"));
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.

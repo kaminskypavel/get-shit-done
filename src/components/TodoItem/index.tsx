@@ -9,7 +9,7 @@ import DeleteIcon from "@material-ui/icons/Delete";
 import SimpleSlider from "../SimpleSlider/index";
 
 interface ITodoItemProps {
-  todo: TodoModel
+  todo: TodoModel;
 }
 
 function withStrike(WrappedComponent: any, todo: TodoModel) {
@@ -27,7 +27,6 @@ function withStrike(WrappedComponent: any, todo: TodoModel) {
 
 @observer
 export default class extends Component<ITodoItemProps> {
-
   @action
   handleToggle = () => {
     this.props.todo.toggle();
@@ -37,7 +36,6 @@ export default class extends Component<ITodoItemProps> {
   handleDelete = () => {
     this.props.todo.remove();
   };
-
 
   render() {
     const {todo} = this.props;
@@ -50,30 +48,25 @@ export default class extends Component<ITodoItemProps> {
           <div className="todo-action-flex">
             <Tooltip title="mark as done">
               <div className="todo-done-checkbox">
-                <Checkbox
-                  checked={done}
-                  onChange={this.handleToggle}
-                />
+                <Checkbox checked={done} onChange={this.handleToggle} />
               </div>
             </Tooltip>
             <Tooltip title="delete todo">
               <div className="todo-delete-icon">
-                <DeleteIcon onClick={this.handleDelete}/>
+                <DeleteIcon onClick={this.handleDelete} />
               </div>
             </Tooltip>
           </div>
         </TableCellWithStrike>
+        <TableCellWithStrike>{description}</TableCellWithStrike>
         <TableCellWithStrike>
-          {description}
+          <SimpleSlider defaultValue={urgency} handleChange={todo.setUrgency} disabled={done} />
         </TableCellWithStrike>
         <TableCellWithStrike>
-          <SimpleSlider defaultValue={urgency} handleChange={todo.setUrgency} disabled={done}/>
+          <SimpleSlider defaultValue={impact} handleChange={todo.setImpact} disabled={done} />
         </TableCellWithStrike>
         <TableCellWithStrike>
-          <SimpleSlider defaultValue={impact} handleChange={todo.setImpact} disabled={done}/>
-        </TableCellWithStrike>
-        <TableCellWithStrike>
-          <SimpleSlider defaultValue={easiness} handleChange={todo.setEasiness} disabled={done}/>
+          <SimpleSlider defaultValue={easiness} handleChange={todo.setEasiness} disabled={done} />
         </TableCellWithStrike>
         <Tooltip title="priopriry = impact + urgent + easiness" aria-label="Add">
           <TableCellWithStrike>
@@ -85,4 +78,4 @@ export default class extends Component<ITodoItemProps> {
       </TableRow>
     );
   }
-};
+}

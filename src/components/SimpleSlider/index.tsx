@@ -29,7 +29,6 @@ class SimplerSlider extends React.Component<ISimplerSliderProps> {
     disabled: false
   };
 
-
   state = {
     // we can ignore since we use defaultProps
     // @ts-ignore
@@ -42,7 +41,9 @@ class SimplerSlider extends React.Component<ISimplerSliderProps> {
 
     return (
       <div className={classes.root}>
-        <Typography id="label"><b>{this.state.value}</b></Typography>
+        <Typography id="label">
+          <b>{this.state.value}</b>
+        </Typography>
         <Slider
           classes={{container: classes.slider}}
           value={value}
@@ -58,7 +59,6 @@ class SimplerSlider extends React.Component<ISimplerSliderProps> {
             const roundValue = Math.round(this.state.value);
             this.setState({value: roundValue});
             handleChange && handleChange(roundValue);
-
           }}
         />
       </div>

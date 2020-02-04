@@ -20,8 +20,8 @@
   },
   "scripts": {
     "lint": "npm run lint:eslint && npm run lint:prettier",
-    "lint:eslint": "eslint src/**/*.ts --fix",
-    "lint:prettier": "prettier --config .prettierrc --write src/**/*.{ts,js,json}",
+    "lint:eslint": "eslint src/**/*.{ts,tsx,js,json} --fix",
+    "lint:prettier": "prettier --config .prettierrc --write src/**/*.{ts,tsx,js,json}",
     "start": "cross-env NODE_ENV=development react-scripts start",
     "build": "cross-env GENERATE_SOURCEMAP=false react-scripts build",
     "test": "react-scripts test",

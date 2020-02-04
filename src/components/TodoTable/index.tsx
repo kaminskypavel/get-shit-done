@@ -13,7 +13,6 @@ interface ITodoTableProps {
 
 @observer
 export default class extends React.Component<ITodoTableProps> {
-
   render() {
     const {todoStore} = this.props;
     const {todos} = todoStore;
@@ -26,25 +25,36 @@ export default class extends React.Component<ITodoTableProps> {
           recalculateHandler={() => this.sortTodos()}
           todoStore={todoStore}
         />
-        <Table className="table" style={{tableLayout: 'auto'}}>
+        <Table className="table" style={{tableLayout: "auto"}}>
           <TableHead>
             <TableRow>
-              <TableCell align="left" style={{width:'10%'}} >Done</TableCell>
+              <TableCell align="left" style={{width: "10%"}}>
+                Done
+              </TableCell>
               <TableCell align="left">Description</TableCell>
-              <TableCell align="left" style={{width:'15%'}}>Urgency</TableCell>
-              <TableCell align="left" style={{width:'15%'}}>Impact</TableCell>
-              <TableCell align="left" style={{width:'15%'}}>Easiness</TableCell>
-              <TableCell align="left" style={{width:'10%'}}>Priority</TableCell>
+              <TableCell align="left" style={{width: "15%"}}>
+                Urgency
+              </TableCell>
+              <TableCell align="left" style={{width: "15%"}}>
+                Impact
+              </TableCell>
+              <TableCell align="left" style={{width: "15%"}}>
+                Easiness
+              </TableCell>
+              <TableCell align="left" style={{width: "10%"}}>
+                Priority
+              </TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
-            {todos.map((todo) =>
-              <TodoItem todo={todo}/>)}
+            {todos.map((todo) => (
+              <TodoItem todo={todo} />
+            ))}
           </TableBody>
         </Table>
       </Paper>
     );
-  };
+  }
 
   sortTodos() {
     this.props.todoStore.sortTodos();
