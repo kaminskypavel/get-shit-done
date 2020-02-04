@@ -1,15 +1,31 @@
-import React from "react";
-import {Paper, Table, TableBody, TableHead, TableRow} from "@material-ui/core";
+import React, {ComponentType} from "react";
+import {
+  Paper,
+  PaperProps,
+  Table,
+  TableBody,
+  TableHead,
+  TableProps,
+  TableRow
+} from "@material-ui/core";
 import TableCell from "@material-ui/core/TableCell";
 import TodoItem from "../TodoItem";
 import TodoStore from "../../stores/TodoStore";
 import {observer} from "mobx-react";
 import TodoTableToolbar from "./../TodoTableToolbar";
-import "./style.scss";
+import styled from "styled-components";
 
 interface ITodoTableProps {
   todoStore: TodoStore;
 }
+
+const StyledTable = styled<ComponentType<TableProps>>(Table)`
+  min-width: 700px;
+`;
+const StyledPaper = styled<ComponentType<PaperProps>>(Paper)`
+  width: 100%;
+  overflow-x: auto;
+`;
 
 @observer
 export default class extends React.Component<ITodoTableProps> {
@@ -18,14 +34,15 @@ export default class extends React.Component<ITodoTableProps> {
     const {todos} = todoStore;
 
     return (
-      <Paper className="paper">
+      <StyledPaper>
         <TodoTableToolbar
           hintOnRecalculation={todoStore.isDirty}
           addHandler={() => this.showNewTodoDialog()}
           recalculateHandler={() => this.sortTodos()}
           todoStore={todoStore}
         />
-        <Table className="table" style={{tableLayout: "auto"}}>
+
+        <StyledTable className="table" style={{tableLayout: "auto"}}>
           <TableHead>
             <TableRow>
               <TableCell align="left" style={{width: "10%"}}>
@@ -51,8 +68,8 @@ export default class extends React.Component<ITodoTableProps> {
               <TodoItem todo={todo} />
             ))}
           </TableBody>
-        </Table>
-      </Paper>
+        </StyledTable>
+      </StyledPaper>
     );
   }
 
