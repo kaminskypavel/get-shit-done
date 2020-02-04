@@ -8,18 +8,22 @@ export default class TodoStore {
   @observable isDirty = false;
   @observable showNewTodoDialog = false;
 
-
   constructor() {
-    reaction(() => this
-        .todos
-        .filter((todo) => todo.toJS()),
+    reaction(
+      () => this.todos.filter((todo) => todo.toJS()),
       () => {
-        const todos = this.todos.map(todo => todo.toJS());
+        const todos = this.todos.map((todo) => todo.toJS());
         localStorage.setItem("todos", JSON.stringify(todos));
         this.isDirty = true;
-      });
+      }
+    );
 
-    const generateTodo = (description: string, impact: number, urgency: number, easiness: number) => ({
+    const generateTodo = (
+      description: string,
+      impact: number,
+      urgency: number,
+      easiness: number
+    ) => ({
       description,
       impact,
       urgency,
@@ -28,9 +32,9 @@ export default class TodoStore {
       done: false
     });
 
-    this.todos = JSON
-      .parse(localStorage.getItem("todos") || "[]")
-      .map((item: ITodoTask) => TodoModel.fromJS(this, item));
+    this.todos = JSON.parse(localStorage.getItem("todos") || "[]").map((item: ITodoTask) =>
+      TodoModel.fromJS(this, item)
+    );
 
     if (!this.todos.length) {
       this.todos = [
@@ -54,11 +58,10 @@ export default class TodoStore {
     this.todos = [
       ...this.todos
         .filter((todo) => !todo.done)
-        .sort((task1, task2) => (task2.priority) - (task1.priority)),
+        .sort((task1, task2) => task2.priority - task1.priority),
       ...this.todos
         .filter((todo) => todo.done)
-        .sort((task1, task2) => (task2.priority) - (task1.priority))
-
+        .sort((task1, task2) => task2.priority - task1.priority)
     ];
 
     //we don't want a sorting operation to revoke another recalculation
@@ -77,11 +80,10 @@ export default class TodoStore {
 
   @action
   emptyTodos() {
-    this.todos = this.todos.filter(todo => !todo.done);
+    this.todos = this.todos.filter((todo) => !todo.done);
   }
 
   toJS() {
-    return this.todos.map(todo => todo.toJS());
+    return this.todos.map((todo) => todo.toJS());
   }
-
 }

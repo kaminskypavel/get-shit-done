@@ -10,8 +10,14 @@ export default class TodoModel {
   @observable easiness: number;
   @observable done: boolean;
 
-
-  constructor(store: TodoStore, description: string, urgency: number, impact: number, easiness: number, done: boolean) {
+  constructor(
+    store: TodoStore,
+    description: string,
+    urgency: number,
+    impact: number,
+    easiness: number,
+    done: boolean
+  ) {
     this.store = store;
     this.urgency = urgency;
     this.impact = impact;
