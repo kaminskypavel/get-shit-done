@@ -6,7 +6,7 @@ import {action} from "mobx";
 import TodoModel from "../../models/TodoModel";
 import "./index.scss";
 import DeleteIcon from "@material-ui/icons/Delete";
-import SimpleSlider from "../SimpleSlider/index";
+import SimpleSlider from "../SimpleSlider";
 
 interface ITodoItemProps {
   todo: TodoModel;
