@@ -54,11 +54,11 @@ export default class extends Component<ITodoItemProps> {
         <TableCell>
           <ActionButtons>
             <Tooltip title="mark as done">
-              <Checkbox checked={done} onChange={this.handleToggle}/>
+              <Checkbox checked={done} onChange={this.handleToggle} />
             </Tooltip>
             <Tooltip title="delete todo">
               <DeleteButton>
-                <DeleteIcon onClick={this.handleDelete}/>
+                <DeleteIcon onClick={this.handleDelete} />
               </DeleteButton>
             </Tooltip>
           </ActionButtons>
@@ -67,13 +67,13 @@ export default class extends Component<ITodoItemProps> {
           <StrikableText strike={todo.done}>{description}</StrikableText>
         </TableCell>
         <TableCell>
-          <SimpleSlider defaultValue={urgency} handleChange={todo.setUrgency} disabled={done}/>
+          <SimpleSlider defaultValue={urgency} handleChange={todo.setUrgency} disabled={done} />
         </TableCell>
         <TableCell>
-          <SimpleSlider defaultValue={impact} handleChange={todo.setImpact} disabled={done}/>
+          <SimpleSlider defaultValue={impact} handleChange={todo.setImpact} disabled={done} />
         </TableCell>
         <TableCell>
-          <SimpleSlider defaultValue={easiness} handleChange={todo.setEasiness} disabled={done}/>
+          <SimpleSlider defaultValue={easiness} handleChange={todo.setEasiness} disabled={done} />
         </TableCell>
         <Tooltip title="priopriry = impact + urgent + easiness" aria-label="Add">
           <TableCell>

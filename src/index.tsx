@@ -1,7 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import App from "./components/App/App";
-import "./index.scss";
 import * as serviceWorker from "./serviceWorker";
 import ReactGA from "react-ga";
 import {isProduction} from "./utils";
