@@ -1,0 +1,19 @@
+{
+	"extends": [
+		"config:base"
+	],
+	"rebaseStalePrs": true,
+	"automergeType": "branch-push",
+	"automerge": true,
+	"packageRules": [
+		{
+			"depTypeList": [
+				"dependencies"
+			],
+			"updateTypes": [
+				"major"
+			],
+			"automerge": false
+		}
+	]
+}
