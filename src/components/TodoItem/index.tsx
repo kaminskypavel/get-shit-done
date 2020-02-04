@@ -4,25 +4,33 @@ import {Checkbox, TableCell, TableRow, Tooltip, Typography} from "@material-ui/c
 import {observer} from "mobx-react";
 import {action} from "mobx";
 import TodoModel from "../../models/TodoModel";
-import "./index.scss";
 import DeleteIcon from "@material-ui/icons/Delete";
 import SimpleSlider from "../SimpleSlider";
+import styled from "styled-components";
+
+const ActionButtons = styled.div`
+  display: flex;
+  flex-direction: row;
+`;
+
+const DeleteButton = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: rgba(0, 0, 0, 0.6);
+  align: "left";
+
+  :hover {
+    color: black;
+  }
+`;
+
+const StrikableText = styled.div`
+  text-decoration: ${(props: any) => (props.strike ? "line-through" : "none")};
+` as any;
 
 interface ITodoItemProps {
   todo: TodoModel;
-}
-
-function withStrike(WrappedComponent: any, todo: TodoModel) {
-  return class extends React.Component {
-    constructor(props: any) {
-      super(props);
-    }
-
-    render() {
-      const {done} = todo;
-      return <WrappedComponent align="left" className={done ? "strike" : ""} {...this.props} />;
-    }
-  };
 }
 
 @observer
@@ -40,40 +48,39 @@ export default class extends Component<ITodoItemProps> {
   render() {
     const {todo} = this.props;
     const {description, impact, urgency, easiness, priority, done} = todo;
-    const TableCellWithStrike = withStrike(TableCell, todo);
 
     return (
-      <TableRow className={[done ? "done" : "undone", "todo-item"].join(" ")}>
-        <TableCellWithStrike>
-          <div className="todo-action-flex">
+      <TableRow>
+        <TableCell>
+          <ActionButtons>
             <Tooltip title="mark as done">
-              <div className="todo-done-checkbox">
-                <Checkbox checked={done} onChange={this.handleToggle} />
-              </div>
+              <Checkbox checked={done} onChange={this.handleToggle}/>
             </Tooltip>
             <Tooltip title="delete todo">
-              <div className="todo-delete-icon">
-                <DeleteIcon onClick={this.handleDelete} />
-              </div>
+              <DeleteButton>
+                <DeleteIcon onClick={this.handleDelete}/>
+              </DeleteButton>
             </Tooltip>
-          </div>
-        </TableCellWithStrike>
-        <TableCellWithStrike>{description}</TableCellWithStrike>
-        <TableCellWithStrike>
-          <SimpleSlider defaultValue={urgency} handleChange={todo.setUrgency} disabled={done} />
-        </TableCellWithStrike>
-        <TableCellWithStrike>
-          <SimpleSlider defaultValue={impact} handleChange={todo.setImpact} disabled={done} />
-        </TableCellWithStrike>
-        <TableCellWithStrike>
-          <SimpleSlider defaultValue={easiness} handleChange={todo.setEasiness} disabled={done} />
-        </TableCellWithStrike>
+          </ActionButtons>
+        </TableCell>
+        <TableCell>
+          <StrikableText strike={todo.done}>{description}</StrikableText>
+        </TableCell>
+        <TableCell>
+          <SimpleSlider defaultValue={urgency} handleChange={todo.setUrgency} disabled={done}/>
+        </TableCell>
+        <TableCell>
+          <SimpleSlider defaultValue={impact} handleChange={todo.setImpact} disabled={done}/>
+        </TableCell>
+        <TableCell>
+          <SimpleSlider defaultValue={easiness} handleChange={todo.setEasiness} disabled={done}/>
+        </TableCell>
         <Tooltip title="priopriry = impact + urgent + easiness" aria-label="Add">
-          <TableCellWithStrike>
+          <TableCell>
             <Typography color={"secondary"} variant={"h5"}>
               {priority}
             </Typography>
-          </TableCellWithStrike>
+          </TableCell>
         </Tooltip>
       </TableRow>
     );
