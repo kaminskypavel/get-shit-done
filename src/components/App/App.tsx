@@ -49,7 +49,7 @@ class App extends Component {
               <li>01-02-2019 : rename "Importance" to "Impact" + add "Easiness" toggle</li>
               <li>31-01-2019 : Added auto save and load, so no worries on refresh</li>
               <li>22-01-2019 : New print button</li>
-              <br/>
+              <br />
               <small>
                 have more features request? submit to
                 <a href="http://www.pavel-kaminsky.com"> Pavel 'PK' Kaminsky</a>
@@ -60,10 +60,10 @@ class App extends Component {
         {/*<DevTool/>*/}
         <TodoTableContainer>
           <h1>Let's get shit done today 🕗</h1>
-          <br/>
-          <TodoTable todoStore={todoStore}/>
+          <br />
+          <TodoTable todoStore={todoStore} />
         </TodoTableContainer>
-        <NewTodoDialog todoStore={todoStore}/>
+        <NewTodoDialog todoStore={todoStore} />
         <footer>
           <span color={"secondary"}>
             <p className="footer">
@@ -76,7 +76,7 @@ class App extends Component {
             </p>
           </span>
         </footer>
-        <GlobalStyle/>
+        <GlobalStyle />
       </>
     );
   }

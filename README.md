@@ -38,16 +38,5 @@ Is this a quickly solvable task? If so, get it done fast and move on with your l
 
 4. If you find it useful, do share and let me know
 
-----
-
-
-## todo 
-
-* fix print view layout
-* export csv
-* serialize to firebase
-* support google calendar api
-* enzyme and jest tests and "storyshots" 
-* wallaby configuration
-* HMR 
-* blogpost
+===
+- PK.
