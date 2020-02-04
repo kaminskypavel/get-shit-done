@@ -8,7 +8,7 @@
     "@material-ui/icons": "3.0.2",
     "@material-ui/lab": "3.0.0-alpha.28",
     "classnames": "2.2.6",
-    "cross-env": "5.2.0",
+    "cross-env": "7.0.0",
     "mobx": "5.8.0",
     "mobx-react": "5.4.3",
     "react": "^16.12.0",
