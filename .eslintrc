@@ -3,7 +3,8 @@
 		"jest",
 		"@typescript-eslint",
 		"prettier",
-		"json"
+		"json",
+		"better-styled-components"
 	],
 	"extends": [
 		"eslint:recommended",
