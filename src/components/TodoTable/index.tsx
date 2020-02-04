@@ -1,13 +1,5 @@
-import React, {ComponentType} from "react";
-import {
-  Paper,
-  PaperProps,
-  Table,
-  TableBody,
-  TableHead,
-  TableProps,
-  TableRow
-} from "@material-ui/core";
+import React from "react";
+import {Paper, Table, TableBody, TableHead, TableRow} from "@material-ui/core";
 import TableCell from "@material-ui/core/TableCell";
 import TodoItem from "../TodoItem";
 import TodoStore from "../../stores/TodoStore";
@@ -19,13 +11,14 @@ interface ITodoTableProps {
   todoStore: TodoStore;
 }
 
-const StyledTable = styled<ComponentType<TableProps>>(Table)`
+const StyledTable = styled(Table)`
   min-width: 700px;
-`;
-const StyledPaper = styled<ComponentType<PaperProps>>(Paper)`
+` as any;
+
+const StyledPaper = styled(Paper)`
   width: 100%;
   overflow-x: auto;
-`;
+` as any;
 
 @observer
 export default class extends React.Component<ITodoTableProps> {
