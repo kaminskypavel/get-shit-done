@@ -7,11 +7,8 @@ import styled, {createGlobalStyle} from "styled-components";
 const todoStore = new TodoStore();
 const ChangeLog = styled.div`
   text-align: left;
-  color: white;
-  a {
-    color: #f50057;
-  }
 `;
+
 const TodoTableContainer = styled.div`
   min-height: 50vh;
   display: flex;
@@ -34,10 +31,14 @@ const GlobalStyle = createGlobalStyle`
     sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    color: white;
+    a {
+      color: #f50057;
+    }
   }
 `;
 
-class App extends Component {
+export default class App extends Component {
   public render() {
     return (
       <>
@@ -81,5 +82,3 @@ class App extends Component {
     );
   }
 }
-
-export default App;
