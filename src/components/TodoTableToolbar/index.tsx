@@ -45,7 +45,7 @@ class TodoTableToolbar extends Component<ITodoTableToolbarProps> {
                 variant="extended"
                 color="default"
                 onClick={() => {
-                  if (confirm("This will delete all the selected tasks.\nAre you sure?")) {
+                  if (window.confirm("This will delete all the selected tasks.\nAre you sure?")) {
                     this.props.todoStore.emptyTodos();
                   }
                 }}
