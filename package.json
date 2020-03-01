@@ -9,7 +9,7 @@
     "@material-ui/lab": "4.0.0-alpha.41",
     "classnames": "2.2.6",
     "mobx": "5.15.4",
-    "mobx-react": "6.1.4",
+    "mobx-react": "6.1.8",
     "node-sass": "4.13.1",
     "react": "16.12.0",
     "react-dom": "16.12.0",
