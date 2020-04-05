@@ -65,7 +65,12 @@ export default class App extends Component {
         </header>
         {/*<DevTool/>*/}
         <TodoTableContainer>
-          <h1>Let's get shit done today 🕗</h1>
+          <h1>
+            Let's get shit done today{" "}
+            <span role="img" aria-label="edit">
+              🕗
+            </span>
+          </h1>
           <br />
           <TodoTable todoStore={todoStore} />
         </TodoTableContainer>
