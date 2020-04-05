@@ -75,7 +75,7 @@ export default class extends Component<ITodoItemProps> {
         <TableCell>
           <SimpleSlider defaultValue={easiness} handleChange={todo.setEasiness} disabled={done} />
         </TableCell>
-        <Tooltip title="priopriry = impact + urgent + easiness" aria-label="Add">
+        <Tooltip title="priority = impact + urgent + easiness" aria-label="Add">
           <TableCell>
             <Typography color={"secondary"} variant={"h5"}>
               {priority}
