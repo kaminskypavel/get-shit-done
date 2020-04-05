@@ -49,7 +49,7 @@ export default class NewTodoDialog extends React.Component<INewTodoDialogProps> 
           onClose={this.hideDialog}
           aria-labelledby="form-dialog-title"
         >
-          <DialogTitle id="form-dialog-title">New Task 📃✏</DialogTitle>
+          <DialogTitle id="form-dialog-title">New Task</DialogTitle>
           <DialogContent>
             <DialogContentText>
               What do you want to do today?

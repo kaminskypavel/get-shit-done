@@ -45,7 +45,12 @@ export default class App extends Component {
         <header>
           <ChangeLog>
             <ul>
-              <h3>New features 🔔</h3>
+              <h3>
+                New features{" "}
+                <span role="img" aria-label="bell">
+                  🔔
+                </span>
+              </h3>
               <li>23-05-2019 : rename "Reset" to "Delete" and delete only selected tasks</li>
               <li>01-02-2019 : rename "Importance" to "Impact" + add "Easiness" toggle</li>
               <li>31-01-2019 : Added auto save and load, so no worries on refresh</li>
