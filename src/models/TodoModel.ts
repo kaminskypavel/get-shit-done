@@ -1,4 +1,4 @@
-import {computed, observable} from "mobx";
+import {action, computed, observable} from "mobx";
 import TodoStore from "../stores/TodoStore";
 import {ITodoTask} from "../types/ITodoTask";
 
@@ -46,14 +46,17 @@ export default class TodoModel {
     this.store.removeTodo(this);
   }
 
+  @action
   setUrgency = (urgency: number) => {
     this.urgency = urgency;
   };
 
+  @action
   setImpact = (impact: number) => {
     this.impact = impact;
   };
 
+  @action
   setEasiness = (easiness: number) => {
     this.easiness = easiness;
   };

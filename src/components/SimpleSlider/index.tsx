@@ -52,11 +52,7 @@ class SimplerSlider extends React.Component<ISimplerSliderProps> {
           disabled={disabled}
           onChange={(event, value) => {
             this.setState({value});
-          }}
-          onDragEnd={() => {
-            const roundValue = Math.round(this.state.value);
-            this.setState({value: roundValue});
-            handleChange && handleChange(roundValue);
+            handleChange && handleChange(value as number);
           }}
         />
       </div>
