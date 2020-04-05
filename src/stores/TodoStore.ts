@@ -1,6 +1,5 @@
-import {observable, computed, reaction, action, toJS} from "mobx";
+import {action, observable, reaction} from "mobx";
 import TodoModel from "../models/TodoModel";
-import uuidv4 from "uuid/v4";
 import {ITodoTask} from "../types/ITodoTask";
 
 export default class TodoStore {
