@@ -65,6 +65,7 @@ export default class TodoModel {
     return {
       urgency: this.urgency,
       impact: this.impact,
+      easiness: this.easiness,
       description: this.description,
       done: this.done
     };
