@@ -15,7 +15,7 @@
     "react-dom": "16.13.1",
     "react-ga": "3.2.0",
     "react-scripts": "3.3.1",
-    "styled-components": "5.0.1",
+    "styled-components": "5.2.1",
     "typescript": "3.7.5",
     "uuid": "3.4.0"
   },
@@ -46,7 +46,7 @@
     "@types/react": "16.9.19",
     "@types/react-dom": "16.9.5",
     "@types/react-ga": "2.3.0",
-    "@types/styled-components": "4.4.2",
+    "@types/styled-components": "5.1.7",
     "@types/uuid": "3.4.7",
     "@typescript-eslint/eslint-plugin": "2.19.0",
     "@typescript-eslint/parser": "2.19.0",
