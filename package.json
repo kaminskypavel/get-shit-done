@@ -4,9 +4,9 @@
   "private": true,
   "homepage": "https://get-shit-done.pavel-kaminsky.com",
   "dependencies": {
-    "@material-ui/core": "4.9.1",
-    "@material-ui/icons": "4.9.1",
-    "@material-ui/lab": "4.0.0-alpha.41",
+    "@material-ui/core": "4.11.3",
+    "@material-ui/icons": "4.11.2",
+    "@material-ui/lab": "4.0.0-alpha.57",
     "classnames": "2.2.6",
     "mobx": "5.15.4",
     "mobx-react": "6.2.2",
